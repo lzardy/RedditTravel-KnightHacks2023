@@ -312,45 +312,96 @@
 <section class="slide fade-6 kenBurns">
   <div class="content">
     <div class="container">
-      <div class="wrap">
+      <h1 class="center middle margin-top-6">Location</h1>
+
+      <figure class="fix-12-12 row" style="flex: 0 0 auto;max-width: 100%;margin:auto;display:grid;text-align:center;align-items:center;justify-content:center;">
+        <h2 class="ae-1 center">Enter your travel spot to start:</h2>
+        <form class="mb-3">
+          <div class="input-group shadow darkmode-light position-relative search-bar-input-group">
+            <div style="position:absolute;top:-4px;left:-5px;right:-5px;bottom:-4px;z-index:-1;background:linear-gradient(to right, #232045, #48221d);border-radius:13px;"></div>
+            <textarea id="locentry" tabindex="0" autofocus="" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" name="q" class="form-control bg-white darkmode-light searchbox-textarea search-bar-hide-scrollbar" rows="2" placeholder="Enter the name of the city." aria-label="Enter the name of the city." style="background-color: #303133; color:#e8eaec;height: 82px; width:100%; border-radius: 10px;"></textarea>
+          </div>
+        </form>
+        <!-- <script>
+
+          function geocodeLatLng(input) {
+              const latlngStr = input.split(",", 2);
+              const latlng = {
+                lat: parseFloat(latlngStr[0]),
+                lng: parseFloat(latlngStr[1]),
+              };
+
+              geocoder.geocode({ location: latlng }).then((response) => {
+                if (response.results[0]) {
+
+                  const marker = new google.maps.Marker({
+                    position: latlng,
+                    map: map,
+                  });
+
+                  infowindow.setContent(response.results[0].formatted_address);
+                  infowindow.open(map, marker);
+                }
+                else {
+                   window.alert("No results found");
+                  }
+              }).catch((e) => window.alert("Geocoder failed due to: " + e));
+          }
+
+          function codeAddress(input) {
+            geocoder.geocode( { 'address': input}, function(results, status) {
+              if (status == 'OK') {
+                geocodeLatLng(results[0].geometry.location);
+              } else {
+                alert('Geocode was not successful for the following reason: ' + status);
+              }
+            });
+          }
+
+
+          var geocoder = new google.maps.Geocoder();
+          geocoder.geocode( { 'address': address}, function(results, status) {
+            if (status == 'OK') {
+              geocodeLatLng(results[0].geometry.location);
+            } else {
+              alert('Geocode was not successful for the following reason: ' + status);
+            }
+          });
+
+          document.getElementById("locentry").addEventListener("keypress", checkInput)
           
-        <div class="fix-12-12">
-          <ul class="grid">
-            <li class="col-6-12 left">
-              <h1 class="ae-2 fromLeft">Krabi Island</h1>
-              <p class="ae-3 fromLeft"><span class="opacity-8">An electrician isn’t an opinion former, but a graphic designer is. My argument is that all graphic designers hold high levels of responsibility in society.</span></p>
-              <ul class="tabs controller uppercase bold ae-4 fromCenter" data-slider-id="60-1">
-                <li class="selected">Krabi Island</li>
-                <li>Community</li>
-                <li>Surfing</li>
-              </ul>
-            </li>
-            <li class="col-6-12 left ae-5 fromCenter">
-              <ul class="slider animated margin-top-4" data-slider-id="60-1">
-                <li class="selected fromCenter">
-                  <div class="popupTrigger videoThumbnail shadow rounded" data-popup-id="60-1">
-                    <img class="wide" src="assets/img/gallery-60-1.jpg" alt="Video Thumbnail"/>
-                  </div>
-                </li>
-                <li class="fromCenter">
-                  <div class="popupTrigger videoThumbnail shadow rounded" data-popup-id="60-2">
-                    <img class="wide" src="assets/img/gallery-60-2.jpg" alt="Video Thumbnail"/>
-                  </div>
-                </li>
-                <li class="fromCenter">
-                  <div class="popupTrigger videoThumbnail shadow rounded" data-popup-id="60-3">
-                    <img class="wide" src="assets/img/gallery-60-3.jpg" alt="Video Thumbnail"/>
-                  </div>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-        
-      </div>
+          function checkInput(event) {
+              var keyCode = event.hasOwnProperty('which') ? event.which : event.keyCode;
+              if (keyCode == 13) {
+                codeAddress(document.getElementById("locentry").value);
+              }
+          }
+
+        </script>
+
+        <body onload="initialize()">
+          <div id="map" style="width: 320px; height: 480px;"></div>
+          <div>
+            <input id="address" type="textbox" value="Sydney, NSW">
+            <input type="button" value="Encode" onclick="codeAddress()">
+          </div>
+        </body> -->
+
+        <iframe
+          width="450"
+          height="250"
+          frameborder="0" style="border:0"
+          referrerpolicy="strict-origin-when-cross-origin"
+          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBhzum6CQiIZGD1LOd0E5QT_u27ak6Trpg&q="
+          allowfullscreen
+          sandbox="allow-scripts allow-same-origin">
+        </iframe>
+      </figure>
     </div>
   </div>
-  <div class="background" style="background-image:url(assets/img/background/img-60.jpg)"></div>
+  <div class="background" style="background:linear-gradient(45deg,  transparent 0%, transparent 57%, #423246 100%),
+  linear-gradient(-45deg, #8f5046 0%,  #A14436 0.3%, #4C2556 112%,  transparent 11% ),
+  linear-gradient(-90deg, #A14436 100%, #A14436 65%, transparent 20% );"></div>
 </section>
 
 
@@ -375,33 +426,12 @@
 <section class="slide fade-6 kenBurns">
   <div class="content">
     <div class="container">
-      <div class="wrap">
-        
-        <div class="fix-12-12">
-          <ul class="flex verticalCenter">
-            <li class="col-5-12 cell-27">
-              <div class="fix-4-12">
-                <h1 class="ae-2 fromRight">Date</h1>
-              </div>
-            </li>
-            <li class="col-7-12 left">  
-              <div class="ae-3 fromRight">
-                <p class="opacity-8">When we feel less secure, with less control over our daily lives, we reach out to brands to connect with a time when things seemed&nbsp;better.</p>
-              </div>
-              <div class="relative">
-                <img src="assets/img/icon-2.png" class="ae-3 fromCenter app-26" alt="app"/>
-                <div class="text-26">
-                  <h3 class="ae-3 fromRight">Ember for Apple Watch</h3>
-                  <div class="ae-5 fromRight">
-                    <p class="tiny opacity-6">People don&rsquo;t use a product<br>because of the great&nbsp;design.</p>
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-        
-      </div>
+      <h1 class="center middle margin-top-6">TravelBulb</h1>
+
+      <figure class="fix-12-12 left">
+        <h2 class="ae-1 left">Find your dream destination here!</h2>
+        <p class="ae-2 left"><span class="opacity-8">Travelling somewhere? We can help by searching all across the globe. You'll get suggestions from locals and other experienced travelers.</span></p>
+      </figure>
     </div>
   </div>
   <div class="background" style="background:linear-gradient(45deg,  transparent 0%, transparent 57%, #423246 100%),
@@ -415,46 +445,12 @@
     <div class="container">
       <div class="wrap">
         
-        <div class="fix-12-12">
-          <ul class="flex reverse verticalCenter">
-            <li class="col-7-12 left cell-26">
-              <h1 class="ae-1 fromLeft">How we work</h1>
-              <div class="ae-2 fromLeft">
-                <p class="opacity-8">An electrician isn't an opinion former, but a graphic designer is. My argument is that all graphic designers hold high levels of responsibility in&nbsp;society.</p>
-              </div>
-              <div class="relative">
-                <img src="assets/img/icon-1.png" class="ae-3 fromCenter app-26" alt="app"/>
-                <div class="text-26">
-                  <h3 class="ae-3 fromRight">Ember for Apple Watch</h3>
-                  <div class="ae-5 fromRight">
-                    <p class="tiny opacity-6">People don&rsquo;t use a product<br>because of the great&nbsp;design.</p>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="col-5-12">
-              <div class="fix-4-12 center">
-                <ul class="slider clickable ae-1 fromAbove" data-slider-id="26-3">
-                  <li class="selected"><img src="assets/img/watch-26-1.png" alt="Apple Watch Thumbnail"/></li>
-                  <li><img src="assets/img/watch-26-2.png" alt="Apple Watch Thumbnail"/></li>
-                  <li><img src="assets/img/watch-26-1.png" alt="Apple Watch Thumbnail"/></li>
-                  <li><img src="assets/img/watch-26-2.png" alt="Apple Watch Thumbnail"/></li>
-                </ul>
-                <ul class="controller dots ae-3 fromCenter margin-top-3" data-slider-id="26-3">
-                  <li class="dot selected"></li>
-                  <li class="dot"></li>
-                  <li class="dot"></li>
-                  <li class="dot"></li>
-                </ul>
-              </div>
-            </li>
-          </ul>
-        </div>
-        
       </div>
     </div>
   </div>
-  <div class="background" style="background-image:url(assets/img/background/img-26.jpg)"></div>
+  <div class="background" style="background:linear-gradient(45deg,  transparent 0%, transparent 57%, #323d46 100%),
+  linear-gradient(-45deg, #468f78 0%,  #36a181 0.3%, #253456 112%,  transparent 11% ),
+  linear-gradient(-90deg, #36a18c 100%, #36a186 65%, transparent 20% );"></div>
 </section>
 
 <!-- Panel Bottom #01 -->
