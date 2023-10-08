@@ -1,3 +1,6 @@
+import streamlit as st
+
+html_content= """
 <!doctype html>
 <html>
 <head>
@@ -5,12 +8,8 @@
 	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, viewport-fit=cover">
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 
-  <!-- Bootstrap Installation -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
 	<!-- Page Title -->
-	<title>TravelBulb</title>
+	<title>New Template — Slides 4.0.5 Template Generator</title>
 
 	<!-- Compressed Styles -->
 	<link href="css/slides.min.css" rel="stylesheet" type="text/css">
@@ -246,27 +245,36 @@
         <p class="ae-2 left"><span class="opacity-8">Travelling somewhere? We can help by searching all across the globe. You'll get suggestions from locals and other experienced travelers.</span></p>
       </figure>
 
-      <div class="slideshow-container">
-        <br>
-        <div style="text-align:center">
-          <span class="dot" onclick="currentSlide(1)"></span> 
-          <span class="dot" onclick="currentSlide(2)"></span> 
-          <span class="dot" onclick="currentSlide(3)"></span> 
+      <br>
+    
+      <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span> 
+      </div>
+      <div class="slideshow-container" style="margin-bottom: 100px;">
+
+        <div class="mySlides fade">
+          <div class="numbertext center middle">1 / 3</div>
+          <img src="assets\img\b57cb76da37f2862c1924063ec2df89d.jpg">
+          <div class="text">Caption Text</div>
         </div>
-        <div>
-          <div class="mySlides carousel-item active">
-            <img src="assets\img\b57cb76da37f2862c1924063ec2df89d.jpg" class="d-block w-100">
-          </div>
-          <div class="mySlides carousel-item">
-            <img src="assets\img\maxresdefault.jpg" class="d-block w-100">
-          </div>
-          <div class="mySlides carousel-item">
-            <img src="assets\img\restaurant2.jpg" class="d-block w-100">
-          </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext center middle">2 / 3</div>
+          <img src="assets\img\maxresdefault.jpg">
+          <div class="text">Caption Two</div>
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext center middle">3 / 3</div>
+          <img src="assets\img\restaurant2.jpg">
+          <div class="text">Caption Three</div>
         </div>
         
         <a class="prev" onclick="plusSlides(-1)">❮</a>
         <a class="next" onclick="plusSlides(1)">❯</a>
+        
       </div>
     </div>
   </div>
@@ -307,162 +315,96 @@
 <section class="slide fade-6 kenBurns">
   <div class="content">
     <div class="container">
-      <h1 class="center middle margin-top-6">Location</h1>
-
-      <figure class="fix-12-12 row" style="flex: 0 0 auto;max-width: 100%;margin:auto;display:grid;text-align:center;align-items:center;justify-content:center;">
-        <h2 class="ae-1 center">Enter your travel spot to start:</h2>
-        <form class="mb-3">
-          <div class="input-group shadow darkmode-light position-relative search-bar-input-group">
-            <div style="position:absolute;top:-4px;left:-5px;right:-5px;bottom:-4px;z-index:-1;background:linear-gradient(to right, #232045, #48221d);border-radius:13px;"></div>
-            <textarea id="locentry" tabindex="0" autofocus="" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" name="q" class="form-control bg-white darkmode-light searchbox-textarea search-bar-hide-scrollbar" rows="2" placeholder="Enter the name of the city." aria-label="Enter the name of the city." style="background-color: #303133 !important; color:#e8eaec !important;height: 100px; width:100%; border-radius: 10px; font-size:medium;"></textarea>
-          </div>
-        </form>
-        <!-- <script>
-
-          function geocodeLatLng(input) {
-              const latlngStr = input.split(",", 2);
-              const latlng = {
-                lat: parseFloat(latlngStr[0]),
-                lng: parseFloat(latlngStr[1]),
-              };
-
-              geocoder.geocode({ location: latlng }).then((response) => {
-                if (response.results[0]) {
-
-                  const marker = new google.maps.Marker({
-                    position: latlng,
-                    map: map,
-                  });
-
-                  infowindow.setContent(response.results[0].formatted_address);
-                  infowindow.open(map, marker);
-                }
-                else {
-                   window.alert("No results found");
-                  }
-              }).catch((e) => window.alert("Geocoder failed due to: " + e));
-          }
-
-          function codeAddress(input) {
-            geocoder.geocode( { 'address': input}, function(results, status) {
-              if (status == 'OK') {
-                geocodeLatLng(results[0].geometry.location);
-              } else {
-                alert('Geocode was not successful for the following reason: ' + status);
-              }
-            });
-          }
-
-
-          var geocoder = new google.maps.Geocoder();
-          geocoder.geocode( { 'address': address}, function(results, status) {
-            if (status == 'OK') {
-              geocodeLatLng(results[0].geometry.location);
-            } else {
-              alert('Geocode was not successful for the following reason: ' + status);
-            }
-          });
-
-          document.getElementById("locentry").addEventListener("keypress", checkInput)
+      <div class="wrap">
           
-          function checkInput(event) {
-              var keyCode = event.hasOwnProperty('which') ? event.which : event.keyCode;
-              if (keyCode == 13) {
-                codeAddress(document.getElementById("locentry").value);
-              }
-          }
-
-        </script>
-
-        <body onload="initialize()">
-          <div id="map" style="width: 320px; height: 480px;"></div>
-          <div>
-            <input id="address" type="textbox" value="Sydney, NSW">
-            <input type="button" value="Encode" onclick="codeAddress()">
-          </div>
-        </body> -->
-
-        <!-- <iframe
-          width="450"
-          height="250"
-          frameborder="0" style="border:0"
-          referrerpolicy="strict-origin-when-cross-origin"
-          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBhzum6CQiIZGD1LOd0E5QT_u27ak6Trpg&q="
-          allowfullscreen
-          sandbox="allow-scripts allow-same-origin">
-        </iframe> -->
-      </figure>
+        <div class="fix-12-12">
+          <ul class="grid">
+            <li class="col-6-12 left">
+              <h1 class="ae-2 fromLeft">Krabi Island</h1>
+              <p class="ae-3 fromLeft"><span class="opacity-8">An electrician isn’t an opinion former, but a graphic designer is. My argument is that all graphic designers hold high levels of responsibility in society.</span></p>
+              <ul class="tabs controller uppercase bold ae-4 fromCenter" data-slider-id="60-1">
+                <li class="selected">Krabi Island</li>
+                <li>Community</li>
+                <li>Surfing</li>
+              </ul>
+            </li>
+            <li class="col-6-12 left ae-5 fromCenter">
+              <ul class="slider animated margin-top-4" data-slider-id="60-1">
+                <li class="selected fromCenter">
+                  <div class="popupTrigger videoThumbnail shadow rounded" data-popup-id="60-1">
+                    <img class="wide" src="assets/img/gallery-60-1.jpg" alt="Video Thumbnail"/>
+                  </div>
+                </li>
+                <li class="fromCenter">
+                  <div class="popupTrigger videoThumbnail shadow rounded" data-popup-id="60-2">
+                    <img class="wide" src="assets/img/gallery-60-2.jpg" alt="Video Thumbnail"/>
+                  </div>
+                </li>
+                <li class="fromCenter">
+                  <div class="popupTrigger videoThumbnail shadow rounded" data-popup-id="60-3">
+                    <img class="wide" src="assets/img/gallery-60-3.jpg" alt="Video Thumbnail"/>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        
+      </div>
     </div>
   </div>
-  <div class="background" style="background:linear-gradient(45deg,  transparent 0%, transparent 57%, #423246 100%),
-  linear-gradient(-45deg, #8f5046 0%,  #A14436 0.3%, #4C2556 112%,  transparent 11% ),
-  linear-gradient(-90deg, #A14436 100%, #A14436 65%, transparent 20% );"></div>
+  <div class="background" style="background-image:url(assets/img/background/img-60.jpg)"></div>
 </section>
 
-<!-- Slide 3 (#60) -->
+
+<!-- Popup Video -->
+<div class="popup autoplay" data-popup-id="60-1">
+  <div class="close"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#close"></use></svg></div>
+  <div class="content">
+    <div class="container">
+      <div class="wrap">
+        <div class="fix-10-12">
+          <div class="embedVideo popupContent">
+            <iframe src="https://player.vimeo.com/video/101231747?color=ff0179&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Slide 3 (#27) -->
 <section class="slide fade-6 kenBurns">
   <div class="content">
     <div class="container">
-      <h1 class="center middle margin-top-6">Categories</h1>
-
-      <figure class="fix-12-12 row" style="flex: 0 0 auto;max-width: 100%;margin:auto;display:grid;text-align:center;align-items:center;justify-content:center;">
-        <h2 class="ae-1 center">What activities are you interested in?</h2>
-        <div class="input-group mb-3">
+      <div class="wrap">
+        
+        <div class="fix-12-12">
+          <ul class="flex verticalCenter">
+            <li class="col-5-12 cell-27">
+              <div class="fix-4-12">
+                <h1 class="ae-2 fromRight">Date</h1>
+              </div>
+            </li>
+            <li class="col-7-12 left">  
+              <div class="ae-3 fromRight">
+                <p class="opacity-8">When we feel less secure, with less control over our daily lives, we reach out to brands to connect with a time when things seemed&nbsp;better.</p>
+              </div>
+              <div class="relative">
+                <img src="assets/img/icon-2.png" class="ae-3 fromCenter app-26" alt="app"/>
+                <div class="text-26">
+                  <h3 class="ae-3 fromRight">Ember for Apple Watch</h3>
+                  <div class="ae-5 fromRight">
+                    <p class="tiny opacity-6">People don&rsquo;t use a product<br>because of the great&nbsp;design.</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
-        <style>
-          .form-custom {
-            font-size: 20px; /* Increase font size for the form */
-          }
-
-          .btn-custom {
-            font-size: 18px; /* Increase font size for the buttons */
-           padding: 15px 30px; /* Adjust padding to make buttons larger */
-          }
-        </style>
-        <form class="mb-3 form-custom">
-          <div class="input-group shadow darkmode-light position-relative search-bar-input-group">
-            <div style="position:absolute;top:-4px;left:-5px;right:-5px;bottom:-4px;z-index:-1;background:linear-gradient(to right, #232045, #48221d);border-radius:13px;"></div>
-            <style>
-              .btn-group .btn {
-                margin-right: 20px;
-              }
-              .btn-primary{
-                background-color: #808080;
-              }
-              .btn-primary:hover{
-                background-color: #5a5a5a;
-              }
-            </style>
-            <div class="btn-group" style="width:100%">
-              <button class="btn btn-primary btn-custom rounded border-0">Restaurants</button>
-              <button class="btn btn-primary btn-custom rounded border-0" style="margin-right: 20px;">Shopping</button>
-              <button class="btn btn-primary btn-custom rounded border-0">Adventure</button>
-            </div>
-          </div>
-        </form>
-        <br>
-        <form class="mb-3 form-custom">
-          <div class="input-group shadow darkmode-light position-relative search-bar-input-group">
-            <div style="position:absolute;top:-4px;left:-5px;right:-5px;bottom:-4px;z-index:-1;background:linear-gradient(to right, #232045, #48221d);border-radius:13px;"></div>
-            <style>
-              .btn-group .btn {
-                margin-right: 20px;
-              }
-              .btn-primary{
-                background-color: #808080;
-              }
-              .btn-primary:hover{
-                background-color: #5a5a5a;
-              }
-            </style>
-            <div class="btn-group" style="width:100%">
-              <button class="btn btn-primary btn-custom rounded border-0">Night Life</button>
-              <button class="btn btn-primary btn-custom rounded border-0" style="margin-right: 20px;">Entertainment</button>
-              <button class="btn btn-primary btn-custom rounded border-0">Sightseeing</button>
-            </div>
-          </div>
-        </form>
-      </figure>
+        
+      </div>
     </div>
   </div>
   <div class="background" style="background:linear-gradient(45deg,  transparent 0%, transparent 57%, #423246 100%),
@@ -476,12 +418,46 @@
     <div class="container">
       <div class="wrap">
         
+        <div class="fix-12-12">
+          <ul class="flex reverse verticalCenter">
+            <li class="col-7-12 left cell-26">
+              <h1 class="ae-1 fromLeft">How we work</h1>
+              <div class="ae-2 fromLeft">
+                <p class="opacity-8">An electrician isn't an opinion former, but a graphic designer is. My argument is that all graphic designers hold high levels of responsibility in&nbsp;society.</p>
+              </div>
+              <div class="relative">
+                <img src="assets/img/icon-1.png" class="ae-3 fromCenter app-26" alt="app"/>
+                <div class="text-26">
+                  <h3 class="ae-3 fromRight">Ember for Apple Watch</h3>
+                  <div class="ae-5 fromRight">
+                    <p class="tiny opacity-6">People don&rsquo;t use a product<br>because of the great&nbsp;design.</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="col-5-12">
+              <div class="fix-4-12 center">
+                <ul class="slider clickable ae-1 fromAbove" data-slider-id="26-3">
+                  <li class="selected"><img src="assets/img/watch-26-1.png" alt="Apple Watch Thumbnail"/></li>
+                  <li><img src="assets/img/watch-26-2.png" alt="Apple Watch Thumbnail"/></li>
+                  <li><img src="assets/img/watch-26-1.png" alt="Apple Watch Thumbnail"/></li>
+                  <li><img src="assets/img/watch-26-2.png" alt="Apple Watch Thumbnail"/></li>
+                </ul>
+                <ul class="controller dots ae-3 fromCenter margin-top-3" data-slider-id="26-3">
+                  <li class="dot selected"></li>
+                  <li class="dot"></li>
+                  <li class="dot"></li>
+                  <li class="dot"></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        
       </div>
     </div>
   </div>
-  <div class="background" style="background:linear-gradient(45deg,  transparent 0%, transparent 57%, #323d46 100%),
-  linear-gradient(-45deg, #468f78 0%,  #36a181 0.3%, #253456 112%,  transparent 11% ),
-  linear-gradient(-90deg, #36a18c 100%, #36a186 65%, transparent 20% );"></div>
+  <div class="background" style="background-image:url(assets/img/background/img-26.jpg)"></div>
 </section>
 
 <!-- Panel Bottom #01 -->
@@ -497,8 +473,26 @@
   </div>
 </nav>
 
+<!-- Share Window -->
+<div class="dropdown share bottom right" data-dropdown-id="2" data-text="Take a look at this" data-url="https://designmodo.com" data-pinterest-image="https://designmodo.com/wp-content/uploads/2015/10/Presentation.jpg">
+  <div class="center padding-2">
+    <div class="title">Share</div>
+    <a href="#">Contact us</a>
+  </div>
+  <ul>
+    <li class="social-facebook"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#fb-like"></use></svg></li>
+    <li class="social-twitter"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#twitter"></use></svg></li>
+    <li class="social-googlePlus"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#googlePlus"></use></svg></li>
+    <li class="social-linkedin"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#linkedin"></use></svg></li>
+    <li class="mail" data-subject="Subject" data-body="Body">share by email</li>
+  </ul>
+</div>
+
 <!-- Loading Progress Bar -->
 <div class="progress-bar blue"></div>
 		
 </body>
 </html>
+"""
+
+st.components.v1.html(html_content)
